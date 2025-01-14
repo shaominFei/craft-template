@@ -1,0 +1,9 @@
+{
+  "common": {
+    "apiError": "This is supposed to be a French."
+  },
+  "pageTitle": {
+    "home": "French Home",
+    "dashboard": "French Dashboard"
+  }
+}

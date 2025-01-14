@@ -1,0 +1,9 @@
+{
+  "common": {
+    "apiError": "Something is wrong, please try it later."
+  },
+  "pageTitle": {
+    "home": "Home",
+    "dashboard": "Dashboard"
+  }
+}
