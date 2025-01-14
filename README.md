@@ -60,3 +60,5 @@ hooks: useTitle
 unit test samples:
 components/confirm-button/confirm-button.test.tsx
 services/i18n/i18n.test.ts
+
+13. NOTE, when run npm install, please wait until \_ folder is created under .husky folder
