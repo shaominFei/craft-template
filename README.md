@@ -1,50 +1,56 @@
-# React + TypeScript + Vite
+1. components/
+   Contains reusable components that are most often used to compose Feature or Page components.
+   These components are almost always pure and presentational, with no side-effects.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+2. contexts/
+   Contains reusable contexts used to provide data through a tree of components.
 
-Currently, two official plugins are available:
+3. features/
+   a. Contains reusable Feature Components. A Feature Component is a concept in which
+   all logic required for a feature is colocated to a single directory.
+   A Feature Component is often composed of many other components,
+   either local or shared. The same is true for all resources:
+   utils, types, hooks, and so on.
+   b. Feature Components often include side-effects.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+4. hooks/
+   Contains reusable React Hooks that are used in multi-places. If the hook is only used
+   by a feature, then it should be put into the feature's folder
 
-## Expanding the ESLint configuration
+5. pages/
+   a. Contains Page Components. Each Page Component is associated with a route.
+   b. Page Components compose the content of a page by importing Components and Feature Components.
+   c. A Page Component should rarely include side-effects, and should instead delegate side-effects to Feature Components.
+   There are many exceptions, if the side-effect applies to the whole page, or shared with multi-children, we can still have side effects in page.
+   (e.g set the title of page, or fetch the data which is used by many sub-components, etc)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+6. services/
+   a. Contains global reusable code for interacting with an API, often in the form of hooks
+   b. other services that are globally used
 
-- Configure the top-level `parserOptions` property like this:
+7. styles/
+   Reusable or global styles.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+8. types/
+   Global reusable types
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+9. utils/
+   Global reusable utility functions.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+10. config/
+    Global used configurations, like environment variables
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+11. Checklist
+
+multi-language support: i18n-react -- yes
+router: react-router -- yes
+unit test: vitest+React testing library --yes
+husky: yes
+material ui: font- not installed
+icon - installed
+
+hooks: useTitle
+
+unit test samples:
+components/confirm-button/confirm-button.test.tsx
+services/i18n/i18n.test.ts
