@@ -40,7 +40,13 @@
 10. config/
     Global used configurations, like environment variables
 
-11. Checklist
+11. Name convention
+    when naming the tsx file, instead of using PascalCase, we use kebab-case.
+    The reason explains here:https://x.com/rwieruch/status/1836434009041035635
+    BTW, I met the problem when I used PascalCase before, when I changed one letter of
+    my componet file name from lowercase to uppder case, the git didn't identify the change.
+
+12. Checklist
 
 multi-language support: i18n-react -- yes
 router: react-router -- yes
