@@ -12,7 +12,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "format": "prettier --write ./src",
-    "prepare": "husky",
+    "prepare": "husky install",
     "test": "vitest --run"
   },
   "lint-staged": {
